@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 const app = express();
+// adding a comment to test commit --
 
 app.use(bodyParser.json());
 
