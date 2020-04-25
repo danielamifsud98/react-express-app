@@ -1,6 +1,5 @@
 #page-body {
     transition: margin-left .5s;
-    padding: 20px;
 }
 
 .dark-color {
@@ -12,4 +11,30 @@
     color: #61dafb;
     font-weight: bold;
     font-size: 20px;
+    transition: 0.5s;
+}
+
+.navbar-title:hover{
+    color: #009cc7;
+    transition: 0.5s;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.header{
+    padding: 3.5rem 25%;
+    background: #dff8ff;
+    color: #282c34;
+    border-bottom: 1px solid #87eaff;
+}
+
+.container{
+    padding: 2.5rem;
+}
+
+.form-group-question{
+    margin-left: 20% !important;
+    margin-right: 20% !important;
 }

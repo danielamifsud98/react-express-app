@@ -6,6 +6,9 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
+import Question from './pages/Question';
+import NotFoundPage from './pages/NotFoundPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
@@ -13,7 +16,11 @@ function App() {
       <div className="App">
         <Navbar/>
         <div id="page-body">
-          <h1>Hello World!</h1>
+          <Switch>
+            <Route path='/' component ={HomePage} exact/>
+            <Route path='/question/:number' component={Question} />
+            <Route component={NotFoundPage}/>
+          </Switch>
         </div>
       </div>
     </Router>
