@@ -12,7 +12,6 @@ app.get('/api/country/fullname/:name/:fullText', async (req,res) => {
     const isFullText = req.params.fullText;
     axios.get('https://restcountries.eu/rest/v2/name/' + countryName + (isFullText === 'true' ? '?fullText=true' : ''))
     .then(response => {
-        console.log(response);
         res.status(200).json(response.data);
     })
     .catch(error => {
@@ -20,6 +19,15 @@ app.get('/api/country/fullname/:name/:fullText', async (req,res) => {
     });
 })
 
-app.get('/hello', (req, res) => res.send('Hello!'));
+// QUESTION 3
+app.get('/api/country/all', async (req,res) => {
+    axios.get('https://restcountries.eu/rest/v2/all?fields=name')
+    .then(response => {
+        res.status(200).json(response.data);
+    })
+    .catch(error => {
+        res.status(500).json({message: "There was an error!", error});
+    });
+})
 
 app.listen(8000, () => console.log('Listening on port 8000'));

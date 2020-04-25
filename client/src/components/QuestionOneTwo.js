@@ -14,9 +14,9 @@ const QuestionDefault = ({questionNumber}) => {
             setCountryInformation('Please insert a country name!')
         } else {
             var url = ``;
-            if(number == '1'){
+            if(number === '1'){
                 url = `/api/country/fullname/${countryName}/true`
-            } else if(number == '2'){
+            } else if(number === '2'){
                 url = `/api/country/fullname/${countryName}/false`
             }
             const result = await fetch(url);
