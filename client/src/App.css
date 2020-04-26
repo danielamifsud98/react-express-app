@@ -38,3 +38,9 @@
     margin-left: 20% !important;
     margin-right: 20% !important;
 }
+
+.custom-pill{
+    margin: 5px;
+    font-size: 80%;
+    background-color: #eaeaea;
+}
