@@ -13,7 +13,7 @@ const QuestionThree = () => {
             const result = await fetch(`/api/country/all`);
             const body = await result.json();
             setCountries(body);   
-            setFilteredCountries(body);         
+            setFilteredCountries(body);        
         }
         fetchData();
     }, []);
@@ -40,12 +40,21 @@ const QuestionThree = () => {
                             placeholder="Insert Country Name"/>
                     </div>
                 </div>
-            </div>            
-            <CountryResults countryInformation={
-                filteredCountries.map((country) => (
-                    <span key={country.name} className="badge badge-pill badge-light custom-pill">{country.name}</span>
-                ))
-            }/>
+            </div>  
+            {
+                filteredCountries.length > 0 ? (
+                    <CountryResults countryInformation={
+                        filteredCountries.map((country) => (
+                            <span key={country.name} className="badge badge-pill badge-light custom-pill">{country.name}</span>
+                        ))
+                    }/>
+                ) : (
+                    <CountryResults countryInformation={
+                        <p>Country with name: <strong>"{countryName}"</strong> not found!</p>
+                    }/>
+                )
+            }          
+            
         </>
     )
 }
