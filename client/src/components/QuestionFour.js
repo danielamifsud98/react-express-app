@@ -119,7 +119,7 @@ const QuestionFour = ({ slotResults, updateResult }) => {
     return (
         <>
             <div className="row">
-                <div className="col col-md-4">
+                <div className="col col-12 col-md-12 col-lg-4 mb-2">
                 <div className="card h-100">
                     <div className="card-body">
                         <h5 className="font-weight-bold">Rewards</h5>
@@ -136,7 +136,7 @@ const QuestionFour = ({ slotResults, updateResult }) => {
                     </div>
                 </div>
                 </div>
-                <div className="col col-md-8">
+                <div className="col col-12 col-md-12 col-lg-8 mb-2">
                     <div className="d-flex mb-2">
                         <div className="p-2">
                             <span>Number of coins: <strong>{slotResults}</strong></span>
@@ -146,9 +146,9 @@ const QuestionFour = ({ slotResults, updateResult }) => {
                         <div className="ml-auto p-2"><button type="button" class="btn btn-dark btn-sm" onClick={spin}>Spin</button></div>
                     </div>
                     <div className="slots row">
-                        <div className="col-md-4"><img className="slot-image"src={images[0]} /></div>
-                        <div className="col-md-4"><img className="slot-image"src={images[1]} /></div>
-                        <div className="col-md-4"><img className="slot-image"src={images[2]} /></div>
+                        <div className="col col-4 col-md-4"><img className="slot-image"src={images[0]} /></div>
+                        <div className="col col-4 col-md-4"><img className="slot-image"src={images[1]} /></div>
+                        <div className="col col-4 col-md-4"><img className="slot-image"src={images[2]} /></div>
                     </div>
                 </div>
             </div>
