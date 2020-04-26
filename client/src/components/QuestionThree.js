@@ -50,7 +50,7 @@ const QuestionThree = () => {
                     }/>
                 ) : (
                     <CountryResults countryInformation={
-                        <p>Country with name: <strong>"{countryName}"</strong> not found!</p>
+                        <span>Country with name: <strong>"{countryName}"</strong> not found!</span>
                     }/>
                 )
             }          
