@@ -28,7 +28,7 @@ const QuestionThree = () => {
 
     return (
         <>
-            <div className="form-group form-group-question">
+            <div className="form-group form-group-question mb-4">
                 <label className="font-weight-bold">Filter through the list of countries:</label>
                 <div className="row">
                     <div className="col col-12">

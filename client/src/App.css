@@ -1,10 +1,11 @@
-#page-body {
-    transition: margin-left .5s;
+#page-body{
+    min-height: calc(100vh - 75px)
 }
 
 .dark-color {
     background-color: #282c34;
-    padding: 15px 10rem;
+    padding: 0px 10rem;
+    height: 75px;
 }
 
 .navbar-title {
@@ -68,4 +69,10 @@
     border: 1px solid gainsboro;
     border-radius: 25px;
     box-shadow: 3px 1px 12px 0px #b9b9b9;
+}
+
+.homepage{
+    height: calc(100vh - 75px);
+    background: #dff8ff;
+    color: #282c34;
 }
