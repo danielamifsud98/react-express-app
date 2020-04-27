@@ -22,16 +22,6 @@ const Navbar = () => (
                 <li className="nav-item">
                     <Link className="nav-link" to="/question/4">Question 4</Link>
                 </li>
-                <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        SQL
-                    </a>
-                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a className="dropdown-item" href="#">Question 1</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" href="#">Question 2</a>
-                    </div>
-                </li>
             </ul>
         </div>
     </nav>

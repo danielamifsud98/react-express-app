@@ -53,3 +53,19 @@
     border-radius: 15px;
     box-shadow: 3px 2px 12px 2px #d0d0d0;
 }
+
+.results-paragraph{
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.border{
+    border: 1px solid gainsboro;
+    border-radius: 25px;
+    box-shadow: 3px 1px 12px 0px #b9b9b9;
+}

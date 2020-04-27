@@ -5,7 +5,6 @@ export const  slotResults = (state = 20, action) => {
     switch(type) {
         case UPDATE_SLOT_RESULT: {
             const { number } = payload;
-            console.log(number);
             return state+=number;
         }
         default: {

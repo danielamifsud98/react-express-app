@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { updateSlotResult } from '../store/actions'
 
 // SET IMAGES 
-const lemon = require('../images/lemon.png');
-const banana = require('../images/banana.png');
-const cherry = require('../images/cherry.png');
-const apple = require('../images/apple.png');
+const lemon = require('../assets/lemon.png');
+const banana = require('../assets/banana.png');
+const cherry = require('../assets/cherry.png');
+const apple = require('../assets/apple.png');
 const fruit = { lemon, banana, cherry, apple }
 
 const QuestionFour = ({ slotResults, updateResult }) => {
@@ -140,15 +140,15 @@ const QuestionFour = ({ slotResults, updateResult }) => {
                     <div className="d-flex mb-2">
                         <div className="p-2">
                             <span>Number of coins: <strong>{slotResults}</strong></span>
-                            <span id="lost-coin" class="badge badge-pill mx-2 badge-danger d-none">- 1 coin</span>
-                            { winningCoins > 0 ? <span id="win-coin" class="badge badge-pill badge-success">+ {winningCoins} coins</span> : ''}
+                            <span id="lost-coin" className="badge badge-pill mx-2 badge-danger d-none">- 1 coin</span>
+                            { winningCoins > 0 ? <span id="win-coin" className="badge badge-pill badge-success">+ {winningCoins} coins</span> : ''}
                         </div>
-                        <div className="ml-auto p-2"><button type="button" class="btn btn-dark btn-sm" onClick={spin}>Spin</button></div>
+                        <div className="ml-auto p-2"><button type="button" className="btn btn-dark btn-sm" onClick={spin}>Spin</button></div>
                     </div>
                     <div className="slots row">
-                        <div className="col col-4 col-md-4"><img className="slot-image"src={images[0]} /></div>
-                        <div className="col col-4 col-md-4"><img className="slot-image"src={images[1]} /></div>
-                        <div className="col col-4 col-md-4"><img className="slot-image"src={images[2]} /></div>
+                        <div className="col col-4 col-md-4"><img className="slot-image" src={images[0]}/></div>
+                        <div className="col col-4 col-md-4"><img className="slot-image" src={images[1]}/></div>
+                        <div className="col col-4 col-md-4"><img className="slot-image" src={images[2]}/></div>
                     </div>
                 </div>
             </div>

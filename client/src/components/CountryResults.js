@@ -7,7 +7,7 @@ const CountryResults = ({countryInformation}) => {
                 Result
             </div>
             <div className="card-body">
-                <p>{countryInformation}</p>
+                {countryInformation}
             </div>
         </div>
     )
