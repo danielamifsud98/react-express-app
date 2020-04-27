@@ -144,7 +144,7 @@ const QuestionFour = ({ slotResults, updateResult }) => {
                 <div className="col col-12 col-md-12 col-lg-8 mb-2">
                     <div className="d-flex mb-2">
                         <div className="p-2">
-                            <span>Number of coins: <strong>{slotResults}</strong></span>
+                            <span id="total-number-of-coins">Number of coins: <strong>{slotResults}</strong></span>
                             <span id="lost-coin" className="badge badge-pill mx-2 badge-danger d-none">- 1 coin</span>
                             { winningCoins > 0 ? <span id="win-coin" className="badge badge-pill badge-success">+ {winningCoins} coins</span> : ''}
                         </div>

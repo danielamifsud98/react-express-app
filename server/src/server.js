@@ -1,9 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import path from 'path';
 
 const app = express();
 const axios = require('axios');
 
+app.use(express.static(path.join(__dirname, '/build')));
 app.use(bodyParser.json());
 
 // QUESTION 1 AND 2
@@ -28,6 +30,10 @@ app.get('/api/country/all', async (req,res) => {
     .catch(error => {
         res.status(500).json({message: "There was an error!", error});
     });
+})
+
+app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname + '/build/index.html'));
 })
 
 app.listen(8000, () => console.log('Listening on port 8000'));

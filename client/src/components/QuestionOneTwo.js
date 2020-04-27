@@ -52,6 +52,7 @@ const QuestionOneTwo = ({questionNumber}) => {
                 }
                 setCountryInformation(countries);
             } else {
+                setCountryInformation([]);
                 setDefaultStatement('Country not found!');
             }
         }
