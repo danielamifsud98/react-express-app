@@ -18,8 +18,10 @@ const QuestionOneTwo = ({questionNumber}) => {
     }, [number]);
 
     const searchCountry = async () => {
+        console.log(countryName);
         if(countryName.trim() === ''){            
             setDefaultStatement('Please insert a country name!');
+            setCountryInformation([]);
         } else {
             var url = ``;
             if(number === '1'){
