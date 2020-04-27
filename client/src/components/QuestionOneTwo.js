@@ -8,16 +8,18 @@ const QuestionOneTwo = ({questionNumber}) => {
     // SET COUNTRY
     const [countryInformation, setCountryInformation] = useState([]);
     const [countryName, setCountryName] = useState('');
+    const [defaultStatement, setDefaultStatement] = useState('');
 
     // CLEAR ALL ENTRIES
     useEffect(() => {
         setCountryInformation([]);
         setCountryName('');
+        setDefaultStatement('Nothing to show.');
     }, [number]);
 
     const searchCountry = async () => {
-        if(countryName.trim() === ''){
-            setCountryInformation('Please insert a country name!')
+        if(countryName.trim() === ''){            
+            setDefaultStatement('Please insert a country name!');
         } else {
             var url = ``;
             if(number === '1'){
@@ -49,7 +51,8 @@ const QuestionOneTwo = ({questionNumber}) => {
                     countries.push(country);
                 }
                 setCountryInformation(countries);
-                console.log(countries);
+            } else {
+                setDefaultStatement('Country not found!');
             }
         }
     }
@@ -89,14 +92,13 @@ const QuestionOneTwo = ({questionNumber}) => {
                                         <img className="w-100 border" src={country.image}/>
                                     </div>
                                 </div>
-                                <hr key={index}/>
+                                {index !== countryInformation.length-1 ? <hr key={index}/> : '' }
                             </div>
                         ))
                     }/>
                 ) : (
                     <CountryResults countryInformation={
-                        // <span>Country with name: <strong>"{countryName}"</strong> not found!</span>
-                        <span>Nothing to show.</span>
+                        <span>{defaultStatement}</span>
                     }/>
                 )
             }   
