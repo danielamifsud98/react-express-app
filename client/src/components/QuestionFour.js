@@ -13,7 +13,7 @@ const QuestionFour = ({ slotResults, updateResult }) => {
     // SET REELS AND IMAGES
     const [reels, setReels] = useState([]);
     const [images, setImages] = useState([]);
-    const [fruitImages, setFruitImages] = useState({});
+    const [allFruitImages, setAllFruitImages] = useState({});
     const [winningCoins, setWinningCoins] = useState(0);
 
     // SET REELS
@@ -26,78 +26,83 @@ const QuestionFour = ({ slotResults, updateResult }) => {
 
         // DEFAULT IMAGES
         setImages([fruit.lemon, fruit.apple, fruit.banana]);
-        setFruitImages([fruit.lemon, fruit.banana, fruit.cherry, fruit.apple]);
+        setAllFruitImages([fruit.lemon, fruit.banana, fruit.cherry, fruit.apple]);
     }, []);
 
     // SPIN FUNCTION 
     function spin () {
-        document.getElementById('lost-coin').classList.remove("d-none");
-        var result = [];
-        let newImages = [...fruitImages];
-        for(var i = 0; i < reels.length; i++){
-            var fruit = reels[i][Math.floor(Math.random() * (reels[i].length))]
-            result.push(fruit);
+        if(slotResults > 0) {
+            document.getElementById('lost-coin').classList.remove("d-none");
+            var result = [];
+            let newImages = [...allFruitImages];
+            for(var i = 0; i < reels.length; i++){
+                var fruit = reels[i][Math.floor(Math.random() * (reels[i].length))]
+                result.push(fruit);
 
-            // UPDATE IMAGES
-            switch(fruit){
-                case 'lemon':
-                    newImages[i] = fruitImages[0];
-                    break;
-                case 'banana':
-                    newImages[i] = fruitImages[1];
-                    break;
-                case 'cherry':
-                    newImages[i] = fruitImages[2];
-                    break;
-                case 'apple':
-                    newImages[i] = fruitImages[3];
-                    break;
-                default:
-                    break;
-            }
-        }
-        setImages(newImages);
-        var adjacentFruits = findAdjacent(result);
-        var winningPoints = 0;
-        if(Object.keys(adjacentFruits).length > 0){
-            for(let adjacentFruit in adjacentFruits){
-                switch(adjacentFruit){
-                    case 'cherry':
-                        if(adjacentFruits[adjacentFruit] == 2){
-                            winningPoints = 40;
-                        } 
-                        else if (adjacentFruits[adjacentFruit] == 3) {
-                            winningPoints = 50;
-                        }
-                    break;
-                    case 'banana':
-                        if(adjacentFruits[adjacentFruit] == 2){
-                            winningPoints = 5;
-                        } 
-                        else if (adjacentFruits[adjacentFruit] == 3) {
-                            winningPoints = 15;
-                        }
-                    break;
+                // UPDATE IMAGES
+                switch(fruit){
                     case 'lemon':
-                        if (adjacentFruits[adjacentFruit] == 3) {
-                            winningPoints = 3;
-                        }
-                    break;
+                        newImages[i] = allFruitImages[0];
+                        break;
+                    case 'banana':
+                        newImages[i] = allFruitImages[1];
+                        break;
+                    case 'cherry':
+                        newImages[i] = allFruitImages[2];
+                        break;
                     case 'apple':
-                        if(adjacentFruits[adjacentFruit] == 2){
-                            winningPoints = 10;
-                        } 
-                        else if (adjacentFruits[adjacentFruit] == 3) {
-                            winningPoints = 20;
-                        }
-                    break;
+                        newImages[i] = allFruitImages[3];
+                        break;
+                    default:
+                        break;
                 }
-                updateResult(winningPoints-1);
-                setWinningCoins(winningPoints);
+            }
+            setImages(newImages);
+            var adjacentFruits = findAdjacent(result);
+            var winningPoints = 0;
+            if(Object.keys(adjacentFruits).length > 0){
+                for(let adjacentFruit in adjacentFruits){
+                    switch(adjacentFruit){
+                        case 'cherry':
+                            if(adjacentFruits[adjacentFruit] == 2){
+                                winningPoints = 40;
+                            } 
+                            else if (adjacentFruits[adjacentFruit] == 3) {
+                                winningPoints = 50;
+                            }
+                        break;
+                        case 'banana':
+                            if(adjacentFruits[adjacentFruit] == 2){
+                                winningPoints = 5;
+                            } 
+                            else if (adjacentFruits[adjacentFruit] == 3) {
+                                winningPoints = 15;
+                            }
+                        break;
+                        case 'lemon':
+                            if (adjacentFruits[adjacentFruit] == 3) {
+                                winningPoints = 3;
+                            }
+                        break;
+                        case 'apple':
+                            if(adjacentFruits[adjacentFruit] == 2){
+                                winningPoints = 10;
+                            } 
+                            else if (adjacentFruits[adjacentFruit] == 3) {
+                                winningPoints = 20;
+                            }
+                        break;
+                    }
+                    updateResult(winningPoints-1);
+                    setWinningCoins(winningPoints);
+                }
+            } else {
+                updateResult(-1);
+                setWinningCoins(0);
             }
         } else {
-            updateResult(-1);
-            setWinningCoins(0);
+            // DISABLE SPIN BUTTON
+            document.getElementById('spin-button').disabled = true;
         }
     } 
     
@@ -143,7 +148,7 @@ const QuestionFour = ({ slotResults, updateResult }) => {
                             <span id="lost-coin" className="badge badge-pill mx-2 badge-danger d-none">- 1 coin</span>
                             { winningCoins > 0 ? <span id="win-coin" className="badge badge-pill badge-success">+ {winningCoins} coins</span> : ''}
                         </div>
-                        <div className="ml-auto p-2"><button type="button" className="btn btn-dark btn-sm" onClick={spin}>Spin</button></div>
+                        <div className="ml-auto p-2"><button id="spin-button" type="button" className="btn btn-dark btn-sm" onClick={spin}>Spin</button></div>
                     </div>
                     <div className="slots row">
                         <div className="col col-4 col-md-4"><img className="slot-image" src={images[0]}/></div>
